@@ -34,8 +34,12 @@ shinyModule <- function(input, output, session, data) {
   })
   output$plot <- renderPlot({
     dat <- filter_track_data(data, .track_id=input$indivL)
-    plot(st_geometry(mt_track_lines(dat)))
+    plot(st_geometry(mt_track_lines(dat))) 
   })
+  #filter_track_data: keep or drop attributes in the track data
+  #st_geometry: Get, set, replace or rename geometry from an sf object
+  #mt_track_lines: Converts each track into one line
+
   ##--## end of example ##--##
   
   # data must be returned. Either the unmodified input data, or the modified data by the app
